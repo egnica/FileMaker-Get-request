@@ -97,17 +97,22 @@ Structure of a Record in FileMaker Data API
 Here’s a simplified example of what a single record might look like in the response from FileMaker:
 
 **Explanation of Key Components in returned object:**
--	fieldData:
-What it is: fieldData is an object that contains the actual data fields from the record as defined in the layout.
-Contents: Inside fieldData, each key corresponds to a field name in the layout, and the value is the data stored in that field for the particular record.
-Use Case: You access the values of fields (like col_1, col_2, etc.) directly from this fieldData object.
 
--	portalData:
-What it is: portalData contains related records (from portals) if your layout includes related tables.
-Contents: Each portal has its own structure, and portalData contains the records from these related tables.
+- fieldData:
+  What it is: fieldData is an object that contains the actual data fields from the record as defined in the layout.
+  Contents: Inside fieldData, each key corresponds to a field name in the layout, and the value is the data stored in that field for the particular record.
+  Use Case: You access the values of fields (like col_1, col_2, etc.) directly from this fieldData object.
 
--	modId:
-What it is: This is a modification ID that increments every time the record is modified. It helps in tracking changes.
+- portalData:
+  What it is: portalData contains related records (from portals) if your layout includes related tables.
+  Contents: Each portal has its own structure, and portalData contains the records from these related tables.
 
--	recordId:
-What it is: A unique identifier for the record within the database. It’s often used to perform updates or deletes on the specific record.
+- modId:
+  What it is: This is a modification ID that increments every time the record is modified. It helps in tracking changes.
+
+- recordId:
+  What it is: A unique identifier for the record within the database. It’s often used to perform updates or deletes on the specific record.
+
+### New find: Object.entries --
+
+Object.entries(item.fieldData): This method returns an array of a given object's key-value pairs as arrays. So, each field name and its value are accessible as fieldName and value.
